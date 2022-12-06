@@ -15,8 +15,10 @@ export class AtivoService {
     return this.AtivoRepository.find();
   }
   
-  async findByAmbiente(data: AtivoListarDto): Promise<Ativo[] | undefined> {
-    //console.log(data.ambiente)
-    return this.AtivoRepository.query('SELECT * FROM ativo WHERE ambiente like "%' + "diretoria" + '%";');
+  async findByAmbiente(data: AtivoListarDto): Promise<Ativo | undefined> {
+    //data.ambiente = "diretoria"
+    console.log("Back02: ");
+    console.log(data);
+    return this.AtivoRepository.query('SELECT * FROM ativo WHERE ambiente like "%' + data.ambiente + '%";');
   }
 }

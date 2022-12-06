@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { Ativo } from './ativo.entity';
 import { AtivoService } from './ativo.service';
 import { AtivoListarDto } from './dto/ativo.listar.dto';
@@ -12,10 +12,10 @@ export class AtivoController {
     return this.ativoService.listar();
   }
 
-  @Get('listarPorAmbiente')
-  async listarPorAmbiente(
-    @Body() data: AtivoListarDto,
-  ): Promise<Ativo[]> {
+  @Post('listarPorAmbiente')
+  async listarPorAmbiente(@Body() data): Promise<AtivoListarDto> {
+    console.log("Back01: ");
+    console.log(data);
     return this.ativoService.findByAmbiente(data)
   }
 }

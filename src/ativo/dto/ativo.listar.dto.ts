@@ -1,3 +1,3 @@
 export interface AtivoListarDto {
-    ambiente:string
+    ambiente: string
 }
